@@ -1,19 +1,24 @@
 #include <time.h>
 #include <stdio.h>
+#include <math.h>
 
 int main(){
     time_t date_init = time(NULL);
 
-    const int END = 1000000;
-    int primes[80000] = {2};
+    const int END = 10000000;
+    int primes[700000] = {2};
     int primes_quantity = 1;
 
     for (int num = 3; num < END; num += 2){
         int prime = 1;
 
         for (int i = 0; i < primes_quantity; i++){
-            if (num % primes[i] == 0){
-                prime = 0;
+            if (primes[i] <= pow(num, 0.5)){
+              if (num % primes[i] == 0){
+                  prime = 0;
+                  break;
+              }
+            } else {
                 break;
             }
         }

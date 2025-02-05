@@ -2,8 +2,8 @@ use std::time::Instant;
 
 fn main() {
     let init = Instant::now();
-    const END: i32 = 1000000;
-    let mut primes: [i32; 80000] = [0; 80000];
+    const END: i32 = 10000000;
+    let mut primes: [i32; 700000] = [0; 700000];
     primes[0] = 2;
     let mut primes_quantity = 1;
 
@@ -13,8 +13,12 @@ fn main() {
         let mut prime = true;
 
         for i in 0..primes_quantity {
-            if num % primes[i] == 0 {
-                prime = false;
+            if primes[i] as f32 <= f32::sqrt(num as f32) {
+                if num % primes[i] == 0 {
+                    prime = false;
+                    break;
+                }
+            } else {
                 break;
             }
         }
