@@ -1,21 +1,44 @@
 # Comparison between different languages ​​in performance
 
-| Language | Seconds running | % Compared to the biggest | Comparison x |
-|----------|-----------------|---------------------------|--------------|
-| Python   | 47              | 100.0%                    | 23.5 x       |
-| C        | 5               | 10.6%                     | 2.5 x        |
-| Rust     | 2               | 4.3%                      | x            |
+## Test with END == 10,000,000
+| Language   | Seconds running | % Compared to the biggest | Comparison x |
+|------------|-----------------|---------------------------|--------------|
+| Python     | 42.968          | 100.0                     | 28.974 x     |
+| C          | 1.483           | 3.451                     | x            |
+| Rust       | 2.482           | 5.776                     | 1.677 x      |
+
+
+## Test with END == 100,000
+
+| Language   | Seconds running | % Compared to the biggest | Comparison x |
+|------------|-----------------|---------------------------|--------------|
+| Python     | 0.118           | 4.599                     | 14.75 x      |
+| C          | 0.008           | 0.312                     | x            |
+| Rust       | 0.011           | 0.429                     | 1.375 x      |
+| JavaScript | 2.566           | 100.0                     | 320.75 x     |
+
 
 ## Compillation commands
 Python --> python3 seePrimes.py
+
 Version --> Python 3.11.11
 
+
 C --> gcc -o seePrimes seePrimes.c -lm && ./seePrimes
+
 Version --> gcc (SUSE Linux) 14.2.1 20241007 
 [revision 4af44f2cf7d281f3e4f3957efce10e8b2ccb2ad3]
 
+
 Rust --> rustc seePrimes.rs && ./seePrimes
+
 Version --> rustc 1.84.0 (9fc6b4312 2025-01-07)
+
+
+JavaScript --> node seePrimes.js
+
+Version --> 22.13.1
+
 
 ## System Details
 ### Report details
@@ -41,14 +64,21 @@ Version --> rustc 1.84.0 (9fc6b4312 2025-01-07)
 ### This is the best form of make different languages comparison?
 Definitely not, but it is interesting for practical purposes and easy viewing.
 
-Out of curiosity, the first version of the code, which worked a little 
-differently, had C running in half the time of Rust instead of the other way 
-around.
-
 ### The results can change?
 Yes, the results definitely change depending on the system and hardware used to 
 run them, and even other circumstances, such as using the device for other tasks 
-and simple randomness.
+and simple randomness. In my tests, the higher the END, the lower the ratio 
+between the standard variation and the result.
+
+
+Out of curiosity, as stated below, when I tested the JS with END == 10,000,000 
+it ran for 4 hours without returning a result (I stopped the code in the middle 
+because of the delay), on the other hand, if we use the END == 100,000 table it 
+should have finished in 8 minutes.
 
 ### Do you plan to do more testings?
 Yes, I want to add more languages in this page with the time
+
+### Why JS was not tested in the END == 10,000,000?
+Because it takes 4 hours running in my computer and don't finished, so I create
+a lower test for it.

@@ -1,4 +1,5 @@
 import time
+import math
 
 date_init = time.time()
 END = 10000000
@@ -8,7 +9,7 @@ for num in range(3, END, 2):
     prime = True
 
     for div in primes:
-        if div <= num**0.5:
+        if div <= math.sqrt(num):
             if num % div == 0:
                 prime = False
                 break
@@ -18,7 +19,7 @@ for num in range(3, END, 2):
     if prime:
         primes.append(num)
 
-date_end = time.time()
 print(primes)
-print(f'Code end after {round(date_end - date_init)} seconds')
+date_end = time.time()
+print(f'Code end after {round(date_end - date_init, 3)} seconds')
 
