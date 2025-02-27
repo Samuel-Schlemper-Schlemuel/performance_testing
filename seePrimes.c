@@ -1,15 +1,11 @@
-#include <time.h>
 #include <stdio.h>
 #include <math.h>
 
 int main(){
-    struct timespec date_init;
-    clock_gettime(CLOCK_REALTIME, &date_init);
-
-    const int END = 10000000;
+    const int END = 250000;
 
     // The size is always END / 10
-    int primes[1000000] = {2};
+    int primes[25000] = {2};
     int primes_quantity = 1;
 
     for (int num = 3; num < END; num += 2){
@@ -37,20 +33,6 @@ int main(){
           printf(", %d", primes[i]);
     }
     printf("] \n");
-
-    struct timespec date_end;
-    clock_gettime(CLOCK_REALTIME, &date_end);
-
-    long seconds_interval = date_end.tv_sec - date_init.tv_sec;
-    long nseconds_interval = date_end.tv_nsec - date_init.tv_nsec;
-
-    if (nseconds_interval < 0) {
-      seconds_interval--;
-      nseconds_interval += 1000000000;
-    }
-
-    printf("Code end after %ld.%03ld seconds\n",
-           seconds_interval, nseconds_interval / 1000000);
 
     return 0;
 }

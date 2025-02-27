@@ -1,11 +1,8 @@
-use std::time::SystemTime;
-
 fn main() {
-    let date_init = SystemTime::now();
-    const END: i32 = 10000000;
+    const END: i32 = 250000;
 
     // The size is always END / 10
-    let mut primes: [i32; 1000000] = [0; 1000000];
+    let mut primes: [i32; 25000] = [0; 25000];
     primes[0] = 2;
     let mut primes_quantity = 1;
 
@@ -38,11 +35,5 @@ fn main() {
           print!(", {}", primes[i]);
     }
     print!("] \n");
-
-    let date_end = SystemTime::now();
-
-    let interval = date_end.duration_since(date_init).unwrap();
-
-    print!("Code end after {:.3} seconds\n", interval.as_secs_f64());
 }
 

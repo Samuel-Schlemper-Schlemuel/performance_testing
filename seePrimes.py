@@ -1,8 +1,6 @@
-import time
 import math
 
-date_init = time.time()
-END = 10000000
+END = 250000
 primes = [2]
 
 for num in range(3, END, 2):
@@ -20,6 +18,4 @@ for num in range(3, END, 2):
         primes.append(num)
 
 print(primes)
-date_end = time.time()
-print(f'Code end after {round(date_end - date_init, 3)} seconds')
 
