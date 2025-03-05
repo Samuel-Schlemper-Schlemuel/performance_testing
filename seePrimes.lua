@@ -1,4 +1,4 @@
-local END = 5000000
+END = 5000000
 primes = {2}
 
 for num = 3,END do
@@ -16,8 +16,8 @@ for num = 3,END do
 	end
 
 	if (prime) then
-        table.insert(primes, num)
-    end
+		table.insert(primes, num)
+	end
 end
 
 print(primes[#primes])
