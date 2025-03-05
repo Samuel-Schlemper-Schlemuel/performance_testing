@@ -1,6 +1,6 @@
 import math
 
-END = 250000
+END = 5000000
 primes = [2]
 
 for num in range(3, END, 2):
@@ -17,5 +17,5 @@ for num in range(3, END, 2):
     if prime:
         primes.append(num)
 
-print(primes)
+print(primes[-1])
 

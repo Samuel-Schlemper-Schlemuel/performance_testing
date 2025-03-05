@@ -1,11 +1,11 @@
-const END = 250000
+const END = 5000000
 var primes = [2]
 
 for (let num = 3; num < END; num += 2){
     let prime = true
 
-    for (i in primes){
-        div = primes[i]
+    for (let i in primes){
+        let div = primes[i]
 
         if (div <= Math.sqrt(num)){
             if (num % div == 0){
@@ -22,8 +22,5 @@ for (let num = 3; num < END; num += 2){
     }
 }
 
-process.stdout.write('[' + primes[0])
-for (let i = 1; i < primes.length; i++) {
-  process.stdout.write(', ' + primes[i])
-}
-console.log(']')
+console.log(primes[primes.length - 1])
+

@@ -1,8 +1,8 @@
 fn main() {
-    const END: i32 = 250000;
+    const END: i32 = 5000000;
 
     // The size is always END / 10
-    let mut primes: [i32; 25000] = [0; 25000];
+    let mut primes: [i32; 500000] = [0; 500000];
     primes[0] = 2;
     let mut primes_quantity = 1;
 
@@ -30,10 +30,6 @@ fn main() {
         num += 2;
     }
 
-    print!("[{}", primes[0]);
-    for i in 1..primes_quantity {
-          print!(", {}", primes[i]);
-    }
-    print!("] \n");
+    print!("{}", primes[primes_quantity - 1]);
 }
 

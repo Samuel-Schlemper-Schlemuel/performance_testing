@@ -2,10 +2,10 @@
 #include <math.h>
 
 int main(){
-    const int END = 250000;
+    const int END = 5000000;
 
     // The size is always END / 10
-    int primes[25000] = {2};
+    int primes[500000] = {2};
     int primes_quantity = 1;
 
     for (int num = 3; num < END; num += 2){
@@ -28,11 +28,7 @@ int main(){
         }
     }
 
-    printf("[%d", primes[0]);
-    for(int i = 1; i < primes_quantity; i++) {
-          printf(", %d", primes[i]);
-    }
-    printf("] \n");
+    printf("%d", primes[primes_quantity - 1]);
 
     return 0;
 }

@@ -1,52 +1,40 @@
 # Comparison between different languages ​​in performance
 
-## Test with END == 10,000,000
-| Language   | Seconds running | % Compared to the biggest | Comparison x |
-|------------|-----------------|---------------------------|--------------|
-| Python     | 43.962          | 100.0                     | 35.37 x      |
-| C          | 1.243           | 2.83                      | x            |
-| Rust       | 2.344           | 5.33                      | 1.89 x       |
+## Test with END == 5,000,000
+| Language   | Seconds running | Comparison x |
+|------------|-----------------|--------------|
+| Lua        | 6.961           | 16.978 x     |
+| Python     | 16.365          | 39.915 x     |
+| C          | 0.410           | x            |
+| Rust       | 0.871           | 2.124 x      |
+| JavaScript | 216.733         | 528.617 x    |
 
-The C compilation time was 0.048
-The Rust compilation time was 0.133
-
-## Test with END == 250,000
-
-| Language   | Seconds running | % Compared to the biggest | Comparison x |
-|------------|-----------------|---------------------------|--------------|
-| Python     | 0.319           | 1.51                      | 9.67 x       |
-| C          | 0.033           | 0.17                      | x            |
-| Rust       | 0.040           | 0.19                      | 1,21 x       |
-| JavaScript | 21.108          | 100.0                     | 639.64 x     |
-
-The C compilation time was 0.047
-The Rust compilation time was 0.126
-
-## Compillation commands
-Python --> time python3 seePrimes.py
-
-Version --> Python 3.11.11
+The C compilation time was 0.062
 
 
-C --> time gcc -o seePrimes seePrimes.c -lm && time ./seePrimes
-
-Version --> gcc (SUSE Linux) 14.2.1 20241007 
-[revision 4af44f2cf7d281f3e4f3957efce10e8b2ccb2ad3]
+The Rust compilation time was 0.149
 
 
-Rust --> time rustc seePrimes.rs && time ./seePrimes
+## Compillation versions
+Lua --> Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
 
-Version --> rustc 1.84.0 (9fc6b4312 2025-01-07)
+
+Python --> Python 3.11.11
 
 
-JavaScript --> time node seePrimes.js
+C --> gcc (SUSE Linux) 14.2.1 20250220 
+[revision 9ffecde121af883b60bbe60d00425036bc873048]
 
-Version --> v22.13.1
+
+Rust --> rustc 1.84.0 (9fc6b4312 2025-01-07)
+
+
+JavaScript (bun) --> 1.2.4
 
 
 ## System Details
 ### Report details
-- **Date generated:**                              2025-02-27 19:25:38
+- **Date generated:**                              2025-03-05 11:51:49
 
 ### Hardware Information:
 - **Hardware Model:**                              Acer Aspire A315-56
@@ -62,7 +50,7 @@ Version --> v22.13.1
 - **OS Type:**                                     64-bit
 - **GNOME Version:**                               47
 - **Windowing System:**                            Wayland
-- **Kernel Version:**                              Linux 6.13.4-1-default
+- **Kernel Version:**                              Linux 6.13.5-1-default
 
 
 Note: Power mode is set to balanced
@@ -76,7 +64,9 @@ The word time at the beginning of the command tells the Linux kernel to measure
 the execution time and return it in the following format:
 
 real	       0m1,178s
+
 user	       0m1,008s
+
 sys	       0m0,026s
 
 I always use the real time. For compiled languages, I include only the running 
@@ -91,6 +81,5 @@ between the standard variation and the result.
 ### Do you plan to do more testings?
 Yes, I want to add more languages in this page with the time
 
-### Why JS was not tested in the END == 10,000,000?
-Because it takes 4 hours running in my computer and don't finished, so I create
-a lower test for it.
+### Why bun instead of node to run JS?
+Because node was taking a LONG time to run. See past commits to have an idea
