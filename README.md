@@ -1,18 +1,18 @@
 # Comparison between different languages ​​in performance
 
 ## Test with END == 5,000,000
-| Language   | Seconds running | Comparison x |
-|------------|-----------------|--------------|
-| Lua        | 6.961           | 16.978 x     |
-| Python     | 16.365          | 39.915 x     |
-| C          | 0.410           | x            |
-| Rust       | 0.871           | 2.124 x      |
-| JavaScript | 216.733         | 528.617 x    |
+| Language         | Seconds running | Comparison x |
+|------------------|-----------------|--------------|
+| Lua              | 7.112           | 17.692 x     |
+| Python           | 15.444          | 38.418 x     |
+| C                | 0.402           | x            |
+| Rust             | 1.044           | 2.597 x      |
+| JavaScript (bun) | 216.368         | 538.229 x    |
 
-The C compilation time was 0.062
+The C compilation time was 0.052
 
 
-The Rust compilation time was 0.149
+The Rust compilation time was 0.151
 
 
 ## Compillation versions
@@ -34,7 +34,7 @@ JavaScript (bun) --> 1.2.4
 
 ## System Details
 ### Report details
-- **Date generated:**                              2025-03-05 11:51:49
+- **Date generated:**                              2025-03-15 21:40:23
 
 ### Hardware Information:
 - **Hardware Model:**                              Acer Aspire A315-56

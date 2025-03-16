@@ -1,7 +1,7 @@
-const END = 5000000
+var end_see_primes = Number.parseInt(process.argv.slice(2)[0])
 var primes = [2]
 
-for (let num = 3; num < END; num += 2){
+for (let num = 3; num < end_see_primes; num += 2){
     let prime = true
 
     for (let i in primes){

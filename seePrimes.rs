@@ -1,14 +1,16 @@
-fn main() {
-    const END: i32 = 5000000;
+use std::env;
 
-    // The size is always END / 10
-    let mut primes: [i32; 500000] = [0; 500000];
+fn main() {
+    let args: Vec<String> = env::args().collect();
+    let end_see_primes = args[1].parse().unwrap();
+
+    let mut primes: [i32; 1000000] = [0; 1000000];
     primes[0] = 2;
     let mut primes_quantity = 1;
 
     let mut num = 3;
 
-    while num < END {
+    while num < end_see_primes {
         let mut prime = true;
 
         for i in 0..primes_quantity {
@@ -30,6 +32,6 @@ fn main() {
         num += 2;
     }
 
-    print!("{}", primes[primes_quantity - 1]);
+    print!("{}\n", primes[primes_quantity - 1]);
 }
 

@@ -1,9 +1,10 @@
 import math
+import sys
 
-END = 5000000
+end_see_primes = int(sys.argv[1])
 primes = [2]
 
-for num in range(3, END, 2):
+for num in range(3, end_see_primes, 2):
     prime = True
 
     for div in primes:

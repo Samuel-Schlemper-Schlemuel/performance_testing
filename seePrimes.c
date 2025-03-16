@@ -1,14 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
-int main(){
-    const int END = 5000000;
+int main(int argv, char **argc){
+    int end_see_primes = atoi(argc[1]);
 
-    // The size is always END / 10
-    int primes[500000] = {2};
+    int primes[1000000] = {2};
     int primes_quantity = 1;
 
-    for (int num = 3; num < END; num += 2){
+    for (int num = 3; num < end_see_primes; num += 2){
         int prime = 1;
 
         for (int i = 0; i < primes_quantity; i++){
@@ -28,7 +28,7 @@ int main(){
         }
     }
 
-    printf("%d", primes[primes_quantity - 1]);
+    printf("%d\n", primes[primes_quantity - 1]);
 
     return 0;
 }

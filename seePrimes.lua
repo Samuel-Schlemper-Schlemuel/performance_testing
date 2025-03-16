@@ -1,7 +1,7 @@
-END = 5000000
+end_see_primes = ...
 primes = {2}
 
-for num = 3,END do
+for num = 3,end_see_primes do
 	prime = true
 
 	for _, div in pairs(primes) do

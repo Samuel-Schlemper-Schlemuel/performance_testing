@@ -1,10 +1,12 @@
 echo Running in Lua
-time lua seePrimes.lua
+time lua seePrimes.lua $1
+sleep 5
 
 echo
 echo
 echo Running in Python
-time python3 seePrimes.py
+time python3 seePrimes.py $1
+sleep 5
 
 echo
 echo
@@ -13,7 +15,8 @@ time gcc -o seePrimes seePrimes.c -lm
 
 echo
 echo Running in C
-time ./seePrimes
+time ./seePrimes $1
+sleep 3
 
 echo
 echo
@@ -22,12 +25,13 @@ time rustc seePrimes.rs
 
 echo
 echo Running in Rust
-time ./seePrimes
+time ./seePrimes $1
+sleep 3
 
 echo
 echo
 echo Running in JavaScript
-time bun run seePrimes.js
+time bun run seePrimes.js $1
 
 echo
 echo
