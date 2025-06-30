@@ -1,40 +1,44 @@
 # Comparison between different languages ​​in performance
 
 ## Test with END == 5,000,000
-| Language         | Seconds running | Comparison x |
-|------------------|-----------------|--------------|
-| Lua              | 7.112           | 17.692 x     |
-| Python           | 15.444          | 38.418 x     |
-| C                | 0.402           | x            |
-| Rust             | 1.044           | 2.597 x      |
-| JavaScript (bun) | 216.368         | 538.229 x    |
+| Language                     | Seconds running | Comparison x |
+|------------------------------|-----------------|--------------|
+| Lua                          | 6.90            | 31.36 x      |
+| Python                       | 14.51           | 65.95 x      |
+| C                            | 0.37            | 1.68 x       |
+| Rust (rustc)                 | 1.05            | 4.77 x       |
+| Rust (cargo build --release) | 0.22            | x            |
+| JavaScript (bun)             | 218.88          | 994.91 x     |
 
-The C compilation time was 0.052
+The C compilation time was 0.04
 
+The Rust (rustc) compilation time was 0.16
 
-The Rust compilation time was 0.151
-
+The Rust (cargo) compilation time was 0.04
 
 ## Compillation versions
-Lua --> Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
+Lua --> Lua 5.4.4  Copyright (C) 1994-2022 Lua.org, PUC-Rio
 
 
-Python --> Python 3.11.11
+Python --> Python 3.11.2
 
 
-C --> gcc (SUSE Linux) 14.2.1 20250220 
-[revision 9ffecde121af883b60bbe60d00425036bc873048]
+C --> gcc (Debian 12.2.0-14+deb12u1) 12.2.0
 
 
-Rust --> rustc 1.84.0 (9fc6b4312 2025-01-07)
+Rust (rustc) --> rustc 1.87.0 (17067e9ac 2025-05-09)
 
 
-JavaScript (bun) --> 1.2.4
+Rust (cargo) --> cargo 1.87.0 (99624be96 2025-05-06)
 
 
-## System Details
+JavaScript (bun) --> 1.2.17
+
+
+## System Details Report
+
 ### Report details
-- **Date generated:**                              2025-03-15 21:40:23
+- **Date generated:**                              2025-06-29 16:40:44
 
 ### Hardware Information:
 - **Hardware Model:**                              Acer Aspire A315-56
@@ -45,15 +49,19 @@ JavaScript (bun) --> 1.2.4
 
 ### Software Information:
 - **Firmware Version:**                            V1.27
-- **OS Name:**                                     openSUSE Tumbleweed
+- **OS Name:**                                     GNOME OS Nightly
 - **OS Build:**                                    (null)
 - **OS Type:**                                     64-bit
-- **GNOME Version:**                               47
+- **GNOME Version:**                               49
 - **Windowing System:**                            Wayland
-- **Kernel Version:**                              Linux 6.13.5-1-default
+- **Kernel Version:**                              Linux 6.15.2
 
 
-Note: Power mode is set to balanced
+IMPORTANT NOTE: The run.sh script ran in a Debian GNU/Linux 12 environment 
+inside the Ditrobox app.
+
+
+Note: Power mode was set to balanced
 
 ## FAQ
 ### This is the best form of make different languages comparison?
@@ -63,11 +71,11 @@ Definitely not, but it is interesting for practical purposes and easy viewing.
 The word time at the beginning of the command tells the Linux kernel to measure 
 the execution time and return it in the following format:
 
-real	       0m1,178s
+real 14.51
 
-user	       0m1,008s
+user 14.44
 
-sys	       0m0,026s
+sys 0.02
 
 I always use the real time. For compiled languages, I include only the running 
 process time in the table but note the compilation time below it.

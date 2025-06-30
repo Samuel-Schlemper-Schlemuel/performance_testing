@@ -1,37 +1,53 @@
 echo Running in Lua
-time lua seePrimes.lua $1
+time -p lua seePrimes.lua $1
 sleep 5
 
 echo
 echo
 echo Running in Python
-time python3 seePrimes.py $1
+time -p python3 seePrimes.py $1
 sleep 5
 
 echo
 echo
 echo Compiling in C
-time gcc -o seePrimes seePrimes.c -lm
+time -p gcc -o seePrimes seePrimes.c -lm
 
 echo
 echo Running in C
-time ./seePrimes $1
+time -p ./seePrimes $1
 sleep 3
+
 
 echo
 echo
-echo Compiling in Rust
-time rustc seePrimes.rs
+echo Compiling in Rust \(cargo\)
+cd ./rust_see_primes/
+time -p cargo build --release
 
 echo
-echo Running in Rust
-time ./seePrimes $1
+echo Running in Rust \(cargo\)
+time -p ./target/release/rust_see_primes $1
 sleep 3
+
+
+echo
+echo
+echo Compiling in Rust \(rustc\)
+cd ./src
+time -p rustc main.rs
+
+echo
+echo Running in Rust \(rustc\)
+time -p ./main $1
+cd ../..
+sleep 3
+
 
 echo
 echo
 echo Running in JavaScript
-time bun run seePrimes.js $1
+time -p bun run seePrimes.js $1
 
 echo
 echo
@@ -52,6 +68,11 @@ echo
 echo
 echo "rustc (Rust) version"
 rustc --version
+
+echo
+echo
+echo "Cargo (Rust) version"
+cargo --version
 
 echo
 echo
