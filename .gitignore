@@ -1,4 +1,4 @@
 seePrimes
-rust_see_primes/target
-rust_see_primes/Cargo.lock
-rust_see_primes/src/main
+rust_see_primes/target/
+Cargo.lock
+main
